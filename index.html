@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>En Kili Mooku 💗🦋</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+/* ═══════════════════════════════════════════════════
+   ROMANTIC APOLOGY WEBSITE — style.css
+   En Kili Mooku 💗🦋
+═══════════════════════════════════════════════════ */
+
+/* ── RESET & ROOT ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --pink-100: #fff0f5;
+  --pink-200: #ffd6e7;
+  --pink-300: #ffb3cc;
+  --pink-400: #ff80aa;
+  --pink-500: #ff4d8d;
+  --lavender-100: #f5f0ff;
+  --lavender-200: #e8d5ff;
+  --lavender-300: #c9a0ff;
+  --lavender-400: #a855f7;
+  --peach-100: #fff5ee;
+  --peach-200: #ffdcc7;
+  --white: #ffffff;
+  --text-dark: #3d1a2e;
+  --text-mid: #6b3f5a;
+  --text-soft: #9b6b8a;
+  --glass-bg: rgba(255, 255, 255, 0.35);
+  --glass-border: rgba(255, 182, 193, 0.5);
+  --glass-shadow: 0 8px 32px rgba(255, 100, 150, 0.12);
+  --radius-lg: 24px;
+  --radius-xl: 36px;
+  --font-script: 'Dancing Script', cursive;
+  --font-serif: 'Playfair Display', serif;
+  --font-body: 'Lato', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: linear-gradient(135deg, #fff0f8 0%, #f5eaff 40%, #ffeaf5 70%, #eaf2ff 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* ── BACKGROUND PARTICLES & PETALS ── */
+.bg-particles {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  overflow: hidden;
+}
+.bg-petals {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  overflow: hidden;
+}
+.particle {
+  position: absolute;
+  font-size: 14px;
+  opacity: 0;
+  animation: floatUp var(--dur, 8s) var(--delay, 0s) infinite ease-in;
+}
+.petal {
+  position: absolute;
+  width: 10px; height: 14px;
+  background: var(--pink-300);
+  border-radius: 50% 0 50% 0;
+  opacity: 0;
+  animation: petalFall var(--dur, 10s) var(--delay, 0s) infinite linear;
+  transform-origin: center;
+}
+
+@keyframes floatUp {
+  0%   { transform: translateY(110vh) rotate(0deg);  opacity: 0; }
+  10%  { opacity: 0.7; }
+  90%  { opacity: 0.5; }
+  100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+}
+@keyframes petalFall {
+  0%   { transform: translateY(-5vh) rotate(0deg) translateX(0);   opacity: 0; }
+  10%  { opacity: 0.6; }
+  50%  { transform: translateY(50vh) rotate(180deg) translateX(30px); }
+  90%  { opacity: 0.4; }
+  100% { transform: translateY(105vh) rotate(360deg) translateX(-20px); opacity: 0; }
+}
+
+/* ── MUSIC PLAYER ── */
+.music-player {
+  position: fixed; top: 16px; right: 16px; z-index: 1000;
+}
+.music-btn {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  border: 1.5px solid var(--glass-border);
+  border-radius: 40px;
+  padding: 10px 18px;
+  cursor: pointer;
+  color: var(--text-dark);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: var(--glass-shadow);
+  transition: all 0.3s ease;
+}
+.music-btn:hover { transform: scale(1.05); box-shadow: 0 8px 24px rgba(255,100,150,0.25); }
+.music-icon { font-size: 18px; animation: musicPulse 1.5s infinite ease-in-out; }
+@keyframes musicPulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.2);} }
+
+/* ═══════════════════════════════════════
+   OPENING SCREEN
+═══════════════════════════════════════ */
+.opening-screen {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  z-index: 10;
+  padding: 40px 20px;
+}
+.opening-content {
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 32px;
+}
+
+/* Big animated heart */
+.big-heart-container {
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  width: 180px; height: 180px;
+}
+.big-heart {
+  font-size: 120px;
+  position: relative; z-index: 2;
+  animation: heartbeat 1.4s infinite ease-in-out;
+  filter: drop-shadow(0 0 20px rgba(255, 100, 150, 0.5));
+  cursor: default;
+  line-height: 1;
+}
+.heart-pulse {
+  position: absolute; inset: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,150,180,0.3) 0%, transparent 70%);
+  animation: pulseRing 1.4s infinite ease-out;
+}
+@keyframes heartbeat {
+  0%,100%  { transform: scale(1);    }
+  14%      { transform: scale(1.12); }
+  28%      { transform: scale(1);    }
+  42%      { transform: scale(1.08); }
+  70%      { transform: scale(1);    }
+}
+@keyframes pulseRing {
+  0%   { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+.sparkles-ring {
+  position: absolute; inset: 0; z-index: 1;
+  animation: spinSlow 8s linear infinite;
+}
+.sparkle {
+  position: absolute;
+  font-size: 16px;
+  opacity: 0.8;
+  animation: sparkleTwinkle 1.5s infinite ease-in-out;
+}
+@keyframes spinSlow { to { transform: rotate(360deg); } }
+@keyframes sparkleTwinkle { 0%,100%{opacity:0.3; transform:scale(0.8);} 50%{opacity:1; transform:scale(1.2);} }
+
+/* Titles */
+.opening-title {
+  font-family: var(--font-script);
+  font-size: clamp(2rem, 7vw, 3.8rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #ff4d8d, #c040a0, #8844cc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+  text-shadow: none;
+}
+.opening-sub {
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+  color: var(--text-mid);
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
+/* Open heart button */
+.open-heart-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: linear-gradient(135deg, #ff6b9d, #c84b9c, #9b44cc);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 16px 40px;
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(255, 100, 180, 0.4);
+  transition: all 0.35s ease;
+  letter-spacing: 0.5px;
+  position: relative; overflow: hidden;
+}
+.open-heart-btn::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.open-heart-btn:hover { transform: translateY(-3px) scale(1.04); box-shadow: 0 14px 32px rgba(255,100,180,0.5); }
+.open-heart-btn:hover::before { opacity: 1; }
+.open-heart-btn:active { transform: translateY(0) scale(0.98); }
+.btn-icon { font-size: 1.3rem; animation: heartbeat 1.4s infinite; }
+
+/* Opening butterflies */
+.open-butterflies {
+  position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+}
+.fly-butterfly {
+  position: absolute;
+  font-size: 24px;
+  opacity: 0;
+  animation: flyAround var(--fdur, 6s) var(--fdelay, 0s) infinite ease-in-out;
+}
+@keyframes flyAround {
+  0%   { transform: translate(0,0) rotate(0deg);   opacity:0; }
+  20%  { opacity: 0.8; }
+  50%  { transform: translate(var(--fx,40px), var(--fy,-60px)) rotate(var(--fr,20deg)); }
+  80%  { opacity: 0.6; }
+  100% { transform: translate(var(--fx2,80px), var(--fy2,30px)) rotate(0deg); opacity:0; }
+}
+
+/* ═══════════════════════════════════════
+   TRANSITION & UTILITY
+═══════════════════════════════════════ */
+.hidden { display: none !important; }
+.invisible { opacity: 0; pointer-events: none; }
+
+.main-content {
+  position: relative; z-index: 10;
+  animation: fadeInMain 1s ease forwards;
+}
+@keyframes fadeInMain {
+  from { opacity:0; transform:translateY(20px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════
+   SHARED SECTION STYLES
+═══════════════════════════════════════ */
+.section {
+  padding: 80px 20px;
+  position: relative;
+}
+.section-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-badge {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  display: block;
+  animation: floatBadge 3s ease-in-out infinite;
+}
+@keyframes floatBadge { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
+
+.section-title {
+  font-family: var(--font-script);
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #ff4d8d, #9b44cc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.title-divider {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  animation: dividerFloat 2.5s ease-in-out infinite;
+}
+@keyframes dividerFloat { 0%,100%{transform:scale(1);} 50%{transform:scale(1.08);} }
+
+/* ── GLASS CARD ── */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255,255,255,0.6);
+  padding: 32px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(255, 100, 150, 0.2), inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+/* ═══════════════════════════════════════
+   SECTION 2 — MESSAGE
+═══════════════════════════════════════ */
+.message-section {
+  background: linear-gradient(180deg, transparent 0%, rgba(255,220,235,0.15) 50%, transparent 100%);
+}
+.message-card {
+  text-align: left;
+}
+.message-text {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+}
+.message-text:last-child { margin-bottom: 0; }
+.closing-line {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--pink-500);
+  text-align: center;
+}
+
+/* ═══════════════════════════════════════
+   SECTION 3 — GENTLE REMINDER
+═══════════════════════════════════════ */
+.reminder-section {
+  background: linear-gradient(180deg, transparent 0%, rgba(230,210,255,0.15) 50%, transparent 100%);
+}
+.reminder-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  text-align: left;
+}
+.reminder-item {
+  display: flex; flex-direction: column; gap: 12px;
+  padding: 24px;
+}
+.reminder-icon {
+  font-size: 2rem;
+  display: block;
+}
+.reminder-item p {
+  font-size: 0.97rem;
+  line-height: 1.75;
+  color: var(--text-mid);
+}
+
+/* ═══════════════════════════════════════
+   SECTION 4 — SPECIAL CONNECTION
+═══════════════════════════════════════ */
+.connection-section {
+  background: linear-gradient(180deg, transparent 0%, rgba(255,210,230,0.2) 50%, transparent 100%);
+}
+.nicknames-container {
+  display: flex; align-items: center; justify-content: center;
+  gap: 24px; flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+.nickname-card {
+  flex: 0 0 220px;
+  padding: 32px 24px;
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  background: linear-gradient(135deg, rgba(255,220,235,0.5), rgba(230,210,255,0.5));
+}
+.nickname-anim {
+  font-size: 3.5rem;
+  animation: floatAnim 3s ease-in-out infinite;
+}
+.butterfly-anim { animation-delay: 0.5s; }
+.monkey-anim   { animation: monkeyWiggle 2.5s ease-in-out infinite; }
+
+@keyframes floatAnim   { 0%,100%{transform:translateY(0) rotate(-5deg);} 50%{transform:translateY(-12px) rotate(5deg);} }
+@keyframes monkeyWiggle{ 0%,100%{transform:rotate(-8deg);} 50%{transform:rotate(8deg);} }
+
+.nickname-label {
+  font-family: var(--font-script);
+  font-size: 1.4rem;
+  color: var(--text-dark);
+  font-weight: 700;
+}
+.nickname-sub {
+  font-size: 0.9rem;
+  color: var(--text-soft);
+  font-style: italic;
+}
+
+.heart-connector {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+}
+.connector-heart { font-size: 1.2rem; animation: heartbeat 1.4s infinite; }
+.connector-line {
+  width: 2px; height: 40px;
+  background: linear-gradient(to bottom, rgba(255,100,150,0.6), rgba(200,80,200,0.6));
+  border-radius: 2px;
+}
+.connection-message {
+  text-align: left;
+  background: linear-gradient(135deg, rgba(255,230,240,0.5), rgba(235,220,255,0.5));
+}
+.connection-message p {
+  font-size: 1.05rem; line-height: 1.85; color: var(--text-dark);
+  margin-bottom: 16px;
+}
+.connection-message p:last-child { margin-bottom: 0; }
+
+.section-butterflies {
+  position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+}
+
+/* ═══════════════════════════════════════
+   SECTION 5 — THINGS TO KNOW
+═══════════════════════════════════════ */
+.know-section {
+  background: linear-gradient(180deg, transparent 0%, rgba(255,240,250,0.3) 50%, transparent 100%);
+}
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  text-align: left;
+}
+.info-card {
+  padding: 28px;
+  display: flex; flex-direction: column; gap: 12px;
+  background: linear-gradient(135deg, rgba(255,240,248,0.7), rgba(240,228,255,0.7));
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.info-card:hover { transform: translateY(-6px) scale(1.02); }
+.card-icon {
+  font-size: 2.2rem;
+  animation: floatBadge 3s ease-in-out infinite;
+}
+.card-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+.card-body {
+  font-size: 0.97rem; line-height: 1.75; color: var(--text-mid);
+}
+
+/* ═══════════════════════════════════════
+   SECTION 6 — OPEN LETTER
+═══════════════════════════════════════ */
+.letter-section {
+  background: linear-gradient(180deg, transparent 0%, rgba(255, 245, 252, 0.4) 50%, transparent 100%);
+}
+.letter-card {
+  text-align: left;
+  background: linear-gradient(160deg, rgba(255,252,254,0.85), rgba(248,240,255,0.75));
+  border: 1.5px solid rgba(255, 200, 220, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+.letter-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b9d, #c840a0, #9b44cc, #ff6b9d);
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+@keyframes shimmer { 0%{background-position:0% 0;} 100%{background-position:200% 0;} }
+
+.letter-header {
+  text-align: center; margin-bottom: 24px;
+}
+.letter-wax-seal {
+  display: inline-block; font-size: 3rem;
+  animation: sealFloat 3s ease-in-out infinite;
+}
+@keyframes sealFloat { 0%,100%{transform:translateY(0) rotate(-5deg);} 50%{transform:translateY(-8px) rotate(5deg);} }
+
+.letter-greeting {
+  font-family: var(--font-script);
+  font-size: 1.6rem;
+  color: var(--pink-500);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.letter-typed {
+  font-family: var(--font-body);
+  font-size: 1rem; line-height: 1.9;
+  color: var(--text-dark);
+  min-height: 120px;
+  white-space: pre-wrap;
+}
+.cursor-blink {
+  display: inline-block;
+  width: 2px; height: 1.1em;
+  background: var(--pink-500);
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: cursorBlink 0.7s step-end infinite;
+}
+@keyframes cursorBlink { 0%,100%{opacity:1;} 50%{opacity:0;} }
+
+.letter-signature {
+  margin-top: 28px; text-align: right;
+  border-top: 1px dashed rgba(255, 150, 180, 0.4);
+  padding-top: 20px;
+}
+.signature-line {
+  font-family: var(--font-script);
+  font-size: 1.8rem; color: var(--text-dark); font-weight: 700;
+}
+.signature-sub {
+  font-family: var(--font-serif);
+  font-size: 1rem; color: var(--text-soft); font-style: italic;
+  margin-top: 6px;
+}
+
+/* ═══════════════════════════════════════
+   SECTION 7 — INTERACTIVE
+═══════════════════════════════════════ */
+.interactive-section {
+  background: linear-gradient(180deg, transparent 0%, rgba(240,225,255,0.2) 50%, transparent 100%);
+}
+.interactive-buttons {
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
+  margin-top: 8px;
+}
+.choice-btn {
+  width: 100%; max-width: 380px;
+  padding: 18px 32px;
+  border: none; border-radius: 50px;
+  font-family: var(--font-body);
+  font-size: 1.05rem; font-weight: 700;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  letter-spacing: 0.3px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  position: relative; overflow: hidden;
+}
+.choice-btn::after {
+  content:''; position:absolute; inset:0;
+  background: rgba(255,255,255,0.15);
+  opacity:0; transition: opacity 0.3s;
+}
+.choice-btn:hover::after { opacity: 1; }
+.choice-btn:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,0.15); }
+.choice-btn:active { transform: translateY(-1px); }
+
+.btn-talk { background: linear-gradient(135deg, #ff6b9d, #c840a0); color: #fff; }
+.btn-time { background: linear-gradient(135deg, #c084fc, #818cf8); color: #fff; }
+.btn-tell { background: linear-gradient(135deg, #f472b6, #fb923c); color: #fff; }
+
+.response-area { margin-top: 32px; }
+.response-msg {
+  font-family: var(--font-serif);
+  font-size: 1.15rem; font-style: italic;
+  line-height: 1.85; color: var(--text-dark);
+  text-align: center;
+  background: linear-gradient(135deg, rgba(255,240,248,0.7), rgba(240,230,255,0.7));
+  margin-bottom: 20px;
+}
+
+.feelings-textarea {
+  width: 100%;
+  padding: 20px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  font-family: var(--font-body);
+  font-size: 1rem; line-height: 1.75;
+  color: var(--text-dark);
+  resize: vertical; outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.feelings-textarea:focus {
+  border-color: var(--pink-400);
+  box-shadow: 0 0 0 3px rgba(255, 100, 180, 0.15);
+}
+.feelings-textarea::placeholder { color: var(--text-soft); }
+
+.textarea-note {
+  font-size: 0.85rem; color: var(--text-soft);
+  margin-top: 12px; margin-bottom: 16px;
+  font-style: italic;
+}
+.reset-btn {
+  background: transparent;
+  border: 1.5px solid var(--glass-border);
+  border-radius: 40px;
+  padding: 10px 24px;
+  font-family: var(--font-body);
+  font-size: 0.95rem; color: var(--text-soft);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.reset-btn:hover { border-color: var(--pink-400); color: var(--pink-500); transform: translateY(-2px); }
+.reset-wrap { text-align: center; }
+
+/* ═══════════════════════════════════════
+   SECTION 8 — FINAL SCREEN
+═══════════════════════════════════════ */
+.final-section {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  background: linear-gradient(180deg, transparent 0%, rgba(255,220,240,0.2) 40%, rgba(230,215,255,0.2) 100%);
+}
+.final-section .section-inner { width: 100%; }
+
+.final-heart-container {
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  height: 160px; margin-bottom: 40px;
+}
+.final-heart {
+  font-size: 100px;
+  animation: heartbeat 1.4s infinite ease-in-out;
+  filter: drop-shadow(0 0 24px rgba(255,100,150,0.6));
+  position: relative; z-index: 2;
+}
+.final-butterflies {
+  position: absolute; inset: 0; overflow: hidden; pointer-events: none;
+}
+
+.final-message {
+  background: linear-gradient(160deg, rgba(255,250,254,0.9), rgba(248,240,255,0.85));
+  text-align: center; padding: 48px 40px;
+  border: 1.5px solid rgba(255,180,210,0.6);
+}
+.final-name {
+  font-family: var(--font-script);
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  font-weight: 700;
+  color: var(--pink-500);
+  margin-bottom: 28px;
+}
+.final-message p {
+  font-family: var(--font-serif);
+  font-size: 1.1rem; line-height: 1.9;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+}
+.final-highlight {
+  color: var(--pink-500) !important;
+  font-weight: 600 !important;
+  font-size: 1.2rem !important;
+}
+.final-sig {
+  margin-top: 32px;
+  border-top: 1px dashed rgba(255,150,180,0.4);
+  padding-top: 24px;
+}
+.final-sig p { color: var(--text-soft); font-style: italic; }
+.final-sig-name {
+  font-family: var(--font-script) !important;
+  font-size: 2rem !important;
+  color: var(--text-dark) !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
+  margin-top: 8px;
+}
+
+.final-float-hearts {
+  position: absolute; inset: 0; overflow: hidden; pointer-events: none;
+}
+.float-heart {
+  position: absolute;
+  font-size: 20px;
+  opacity: 0;
+  animation: floatHeart var(--dur, 5s) var(--delay, 0s) infinite ease-in-out;
+}
+@keyframes floatHeart {
+  0%   { transform: translateY(0) scale(0.5); opacity: 0; }
+  20%  { opacity: 0.8; }
+  80%  { opacity: 0.5; }
+  100% { transform: translateY(-200px) scale(1.2); opacity: 0; }
+}
+
+/* ═══════════════════════════════════════
+   SCROLL INDICATOR (visual only)
+═══════════════════════════════════════ */
+.scroll-hint {
+  position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+  font-size: 1.5rem; color: var(--text-soft);
+  animation: scrollBounce 1.5s ease-in-out infinite;
+}
+@keyframes scrollBounce { 0%,100%{transform:translateX(-50%) translateY(0);} 50%{transform:translateX(-50%) translateY(8px);} }
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+@media (max-width: 600px) {
+  .section { padding: 60px 16px; }
+  .glass-card { padding: 24px 18px; }
+  .final-message { padding: 36px 20px; }
+  .nicknames-container { flex-direction: column; gap: 16px; }
+  .heart-connector { flex-direction: row; gap: 8px; }
+  .connector-line { width: 40px; height: 2px; }
+  .choice-btn { max-width: 100%; }
+  .music-btn { padding: 8px 14px; font-size: 12px; }
+}
+@media (max-width: 380px) {
+  .big-heart { font-size: 90px; }
+  .opening-title { font-size: 1.8rem; }
+  .nickname-card { flex: 0 0 160px; padding: 20px 16px; }
+}
+
+/* ═══════════════════════════════════════
+   SECTION ALTERNATING BACKGROUNDS
+═══════════════════════════════════════ */
+.message-section    { background: linear-gradient(180deg, rgba(255,230,242,0.2) 0%, rgba(255,242,248,0.3) 100%); }
+.reminder-section   { background: linear-gradient(180deg, rgba(242,230,255,0.2) 0%, rgba(248,240,255,0.3) 100%); }
+.connection-section { background: linear-gradient(180deg, rgba(255,240,248,0.2) 0%, rgba(255,248,252,0.3) 100%); }
+.know-section       { background: linear-gradient(180deg, rgba(230,245,255,0.2) 0%, rgba(240,248,255,0.3) 100%); }
+.letter-section     { background: linear-gradient(180deg, rgba(255,248,240,0.2) 0%, rgba(255,252,248,0.3) 100%); }
+.interactive-section{ background: linear-gradient(180deg, rgba(248,230,255,0.2) 0%, rgba(252,240,255,0.3) 100%); }
+  </style>
+</head>
+<body>
+
+  <!-- ░░ FLOATING BACKGROUND ELEMENTS ░░ -->
+  <div class="bg-particles" id="bgParticles"></div>
+  <div class="bg-petals" id="bgPetals"></div>
+
+  <!-- ░░ MUSIC PLAYER ░░ -->
+  <div class="music-player" id="musicPlayer">
+    <button class="music-btn" id="musicBtn" onclick="toggleMusic()" title="Play/Pause Music">
+      <span class="music-icon" id="musicIcon">♪</span>
+      <span class="music-label" id="musicLabel">Play Music</span>
+    </button>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       SECTION 1 — OPENING SCREEN
+  ════════════════════════════════════════ -->
+  <section class="opening-screen" id="openingScreen">
+    <div class="opening-content">
+
+      <div class="big-heart-container">
+        <div class="big-heart" id="bigHeart">
+          <div class="heart-pulse"></div>
+          💗
+        </div>
+        <div class="sparkles-ring" id="sparklesRing"></div>
+      </div>
+
+      <h1 class="opening-title">Heyyy, Dharshiniiiiiii 💗🦋</h1>
+      <p class="opening-sub">En Kili Mooku... konjam enna paaru di 🥺💗</p>
+
+      <button class="open-heart-btn" onclick="openHeart()">
+        <span class="btn-icon">❤️</span>
+        Open My Heart
+      </button>
+
+    </div>
+    <div class="open-butterflies" id="openButterflies"></div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       MAIN WEBSITE
+  ════════════════════════════════════════ -->
+  <main class="main-content hidden" id="mainContent">
+
+    <!-- SECTION 2 — MY HEART'S MESSAGE -->
+    <section class="section message-section fade-in-section" id="heartMessage">
+      <div class="section-inner">
+        <div class="section-badge">💌</div>
+        <h2 class="section-title">My Heart's Message</h2>
+        <div class="title-divider"><span>💗</span><span>🦋</span><span>💗</span></div>
+        <div class="glass-card message-card">
+          <p class="message-text">Di, nee enakku romba special. Unna paakumbodhu, unna pathi nenaikumbodhu — there's this warmth I can't explain.</p>
+          <p class="message-text">En Kili Mooku, un smile dhaan enakku romba precious. When you're happy, it's the best thing in my world. And when you're hurting, I genuinely feel it too.</p>
+          <p class="message-text">Right now, I'm scared. Not because I want to hold onto you out of fear — but because what we have together is something I've never felt with anyone else. The way you laugh, the way we talk, the way you make even ordinary moments feel like something worth remembering.</p>
+          <p class="message-text">Unna force panna enakku viruppam illa di. Aana en feelings unakku theriyanum — because you deserve honesty. You deserve to know that you are truly, genuinely loved.</p>
+          <p class="message-text">I want you to feel safe, not pressured. I want you to feel respected, not manipulated. I want you to understand that wherever you are, wherever you end up — your happiness genuinely matters to me.</p>
+          <p class="message-text">I hope you remember the love and happiness we've shared. Not to feel obligated — but because they were real. Every moment we had was real, Dharshini.</p>
+          <p class="message-text closing-line">Nee enakku romba mukkiyam di. 🥺💗</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 — GENTLE REMINDER -->
+    <section class="section reminder-section fade-in-section" id="gentleReminder">
+      <div class="section-inner">
+        <div class="section-badge">💗</div>
+        <h2 class="section-title">Before You Make Your Decision...</h2>
+        <div class="title-divider"><span>🌸</span><span>✨</span><span>🌸</span></div>
+        <div class="reminder-grid">
+          <div class="reminder-item glass-card"><div class="reminder-icon">🌷</div><p>You deserve love that feels safe — love that doesn't make you question your worth or walk on eggshells.</p></div>
+          <div class="reminder-item glass-card"><div class="reminder-icon">🤝</div><p>You deserve loyalty and honesty. Not just in words, but in every action, every choice, every day.</p></div>
+          <div class="reminder-item glass-card"><div class="reminder-icon">🫶</div><p>You deserve someone who respects your feelings — someone who listens, not just when it's convenient for them.</p></div>
+          <div class="reminder-item glass-card"><div class="reminder-icon">🌟</div><p>Past actions and consistent behaviour matter more than promises made in moments of desperation or convenience.</p></div>
+          <div class="reminder-item glass-card"><div class="reminder-icon">🕊️</div><p>You don't have to decide because someone is pressuring you. Your heart is yours. Your decision is yours.</p></div>
+          <div class="reminder-item glass-card"><div class="reminder-icon">💫</div><p>Take your time. Listen to yourself. Choose what is truly right for you — not what someone else is asking you to choose.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4 — SPECIAL CONNECTION -->
+    <section class="section connection-section fade-in-section" id="specialConnection">
+      <div class="section-inner">
+        <div class="nicknames-container">
+          <div class="nickname-card glass-card">
+            <div class="nickname-anim butterfly-anim">🦋</div>
+            <h3 class="nickname-label">My Kili Mooku 💗🦋</h3>
+            <p class="nickname-sub">Sweet, beautiful, irreplaceable</p>
+          </div>
+          <div class="heart-connector">
+            <div class="connector-heart">💗</div>
+            <div class="connector-line"></div>
+            <div class="connector-heart">💗</div>
+          </div>
+          <div class="nickname-card glass-card">
+            <div class="nickname-anim monkey-anim">🐒</div>
+            <h3 class="nickname-label">Your Korangu 🐒❤️</h3>
+            <p class="nickname-sub">Yours, always and truly</p>
+          </div>
+        </div>
+        <div class="connection-message glass-card">
+          <p>Whatever happens, the time we have shared and the feelings I've had for you are real. You're not just someone I love; you're someone whose happiness genuinely matters to me.</p>
+          <p>These nicknames, our little jokes, the way we understood each other — none of that was nothing, di. It was everything.</p>
+        </div>
+        <div class="section-butterflies" id="sectionButterflies"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 5 — THINGS TO KNOW -->
+    <section class="section know-section fade-in-section" id="thingsToKnow">
+      <div class="section-inner">
+        <div class="section-badge">🥺</div>
+        <h2 class="section-title">Things I Want You to Know</h2>
+        <div class="title-divider"><span>💗</span><span>💫</span><span>💗</span></div>
+        <div class="cards-grid">
+          <div class="info-card glass-card">
+            <div class="card-icon">❤️</div>
+            <h3 class="card-title">I Choose Honesty</h3>
+            <p class="card-body">I want our relationship to be built on truth, trust, and loyalty. No hidden feelings, no half-truths. Just us, being real with each other.</p>
+          </div>
+          <div class="info-card glass-card">
+            <div class="card-icon">🫶</div>
+            <h3 class="card-title">I Choose Respect</h3>
+            <p class="card-body">Your feelings matter to me, even when they are difficult for me to understand. I will always try to listen before I react.</p>
+          </div>
+          <div class="info-card glass-card">
+            <div class="card-icon">🌷</div>
+            <h3 class="card-title">I Choose Patience</h3>
+            <p class="card-body">I won't force you to make a decision before you're ready. Real love waits. Real love doesn't push you into corners.</p>
+          </div>
+          <div class="info-card glass-card">
+            <div class="card-icon">💗</div>
+            <h3 class="card-title">I Choose Us</h3>
+            <p class="card-body">If you genuinely want to continue our relationship, I want us to work through this together — with honesty, understanding, and open hearts.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6 — OPEN LETTER -->
+    <section class="section letter-section fade-in-section" id="openLetter">
+      <div class="section-inner">
+        <div class="section-badge">💌</div>
+        <h2 class="section-title">An Open Letter</h2>
+        <div class="title-divider"><span>🌸</span><span>💗</span><span>🌸</span></div>
+        <div class="letter-card glass-card">
+          <div class="letter-header"><div class="letter-wax-seal">💌</div></div>
+          <div class="letter-body">
+            <p class="letter-greeting">Dear Dharshiniiiiiii,</p>
+            <div class="letter-typed" id="letterTyped"></div>
+            <div class="letter-signature hidden" id="letterSignature">
+              <p class="signature-line">Un Korangu 🐒❤️</p>
+              <p class="signature-sub">Always wishing happiness for my Kili Mooku 💗🦋</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7 — INTERACTIVE -->
+    <section class="section interactive-section fade-in-section" id="interactiveQ">
+      <div class="section-inner">
+        <div class="section-badge">🥺</div>
+        <h2 class="section-title">Kili Mooku, can we talk honestly about us?</h2>
+        <div class="title-divider"><span>💗</span><span>🦋</span><span>💗</span></div>
+        <div class="interactive-buttons" id="interactiveBtns">
+          <button class="choice-btn btn-talk" onclick="handleChoice('talk')">Let's Talk, Korangu 💗</button>
+          <button class="choice-btn btn-time" onclick="handleChoice('time')">I Need Some Time 🦋</button>
+          <button class="choice-btn btn-tell" onclick="handleChoice('tell')">I Need to Tell You Something 💌</button>
+        </div>
+        <div class="response-area hidden" id="responseArea">
+          <div class="response-msg glass-card" id="responseMsg"></div>
+          <div class="textarea-area hidden" id="textareaArea">
+            <textarea class="feelings-textarea" id="feelingsTextarea" placeholder="Di, type whatever is in your heart. This stays only here, only with you. 💗" rows="6"></textarea>
+            <p class="textarea-note">⚠️ Your message is not sent anywhere. This space is just for you. 💗</p>
+            <button class="reset-btn" onclick="resetChoices()">← Go Back</button>
+          </div>
+          <div class="reset-wrap" id="resetWrap">
+            <button class="reset-btn" onclick="resetChoices()">← Go Back</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8 — FINAL SCREEN -->
+    <section class="section final-section fade-in-section" id="finalScreen">
+      <div class="section-inner">
+        <div class="final-heart-container">
+          <div class="final-heart">💗</div>
+          <div class="final-butterflies" id="finalButterflies"></div>
+        </div>
+        <div class="final-message glass-card">
+          <p class="final-name">En Dharshiniiiiiii 💗🦋</p>
+          <p>Nee enakku romba special di.</p>
+          <p>Unna naan unmaiya love panren.</p>
+          <p>Namma relationship-la love mattum illa, trust, respect, honesty-um irukkanum nu aasai paduren.</p>
+          <p>Namma rendu perum manasuvittu pesi, namma feelings-a purinjukittu, namakku enna best-nu serndhu decide pannalaam.</p>
+          <p class="final-highlight">Un happiness enakku mukkiyam di.</p>
+          <p>If you still choose us, I'll do my best to make our relationship stronger — every single day.</p>
+          <div class="final-sig">
+            <p>Love,</p>
+            <p class="final-sig-name">Un Korangu 🐒❤️</p>
+          </div>
+        </div>
+        <div class="final-float-hearts" id="finalFloatHearts"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <audio id="bgMusic" loop>
+    <!-- To add music: save a romantic MP3 as music.mp3 and uncomment below -->
+    <!-- <source src="music.mp3" type="audio/mpeg" /> -->
+  </audio>
+
+  <script>
+/* ═══════════════════════════════════════════════════
+   ROMANTIC APOLOGY WEBSITE — script.js
+   En Kili Mooku 💗🦋
+═══════════════════════════════════════════════════ */
+
+'use strict';
+
+/* ── MUSIC ── */
+let musicPlaying = false;
+const bgMusic   = document.getElementById('bgMusic');
+const musicBtn  = document.getElementById('musicBtn');
+const musicIcon = document.getElementById('musicIcon');
+const musicLabel= document.getElementById('musicLabel');
+
+function toggleMusic() {
+  if (!bgMusic) return;
+  if (musicPlaying) {
+    bgMusic.pause();
+    musicIcon.textContent  = '♪';
+    musicLabel.textContent = 'Play Music';
+    musicPlaying = false;
+    musicIcon.style.animation = 'none';
+  } else {
+    bgMusic.play().catch(() => {
+      // Autoplay blocked — show a friendly note
+      musicLabel.textContent = 'Add music.mp3 ♪';
+    });
+    musicIcon.textContent  = '⏸';
+    musicLabel.textContent = 'Pause Music';
+    musicPlaying = true;
+    musicIcon.style.animation = '';
+  }
+}
+
+/* ── BACKGROUND PARTICLES ── */
+function createParticles() {
+  const container = document.getElementById('bgParticles');
+  const symbols   = ['💗', '🦋', '✨', '🌸', '💕', '⭐', '🌟', '💫'];
+  const count     = 18;
+
+  for (let i = 0; i < count; i++) {
+    const el = document.createElement('div');
+    el.className  = 'particle';
+    el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    el.style.cssText = `
+      left: ${Math.random() * 100}%;
+      --dur:   ${6 + Math.random() * 10}s;
+      --delay: ${Math.random() * 10}s;
+      font-size: ${10 + Math.random() * 16}px;
+    `;
+    container.appendChild(el);
+  }
+}
+
+function createPetals() {
+  const container = document.getElementById('bgPetals');
+  const colors    = ['#ffb3cc','#ffd6e7','#e8c0ff','#c9a0ff','#ffcce5'];
+  const count     = 22;
+
+  for (let i = 0; i < count; i++) {
+    const el = document.createElement('div');
+    el.className = 'petal';
+    el.style.cssText = `
+      left: ${Math.random() * 100}%;
+      background: ${colors[Math.floor(Math.random() * colors.length)]};
+      --dur:   ${8 + Math.random() * 12}s;
+      --delay: ${Math.random() * 12}s;
+      width:  ${8 + Math.random() * 10}px;
+      height: ${12 + Math.random() * 12}px;
+    `;
+    container.appendChild(el);
+  }
+}
+
+/* ── OPENING SCREEN BUTTERFLIES ── */
+function createOpeningButterflies() {
+  const container = document.getElementById('openButterflies');
+  const count     = 10;
+  const txVals    = [-60,-40,-20,0,20,40,60,80,100,120];
+  const tyVals    = [-80,-60,-40,-100,-120,-70,-50,-90,-110,-30];
+
+  for (let i = 0; i < count; i++) {
+    const el = document.createElement('div');
+    el.className = 'fly-butterfly';
+    el.textContent = '🦋';
+    const tx  = txVals[Math.floor(Math.random() * txVals.length)];
+    const ty  = tyVals[Math.floor(Math.random() * tyVals.length)];
+    const tx2 = tx + (Math.random() * 80 - 40);
+    const ty2 = ty + 50;
+    el.style.cssText = `
+      left:  ${10 + Math.random() * 80}%;
+      top:   ${10 + Math.random() * 80}%;
+      --fx:  ${tx}px;
+      --fy:  ${ty}px;
+      --fx2: ${tx2}px;
+      --fy2: ${ty2}px;
+      --fr:  ${Math.random() * 40 - 20}deg;
+      --fdur:  ${5 + Math.random() * 6}s;
+      --fdelay: ${Math.random() * 5}s;
+      font-size: ${18 + Math.random() * 16}px;
+    `;
+    container.appendChild(el);
+  }
+}
+
+/* ── SPARKLES RING ── */
+function createSparklesRing() {
+  const ring  = document.getElementById('sparklesRing');
+  const count = 8;
+  const r     = 80; // radius px
+
+  for (let i = 0; i < count; i++) {
+    const el    = document.createElement('div');
+    el.className = 'sparkle';
+    const angle  = (i / count) * 360;
+    const rad    = (angle * Math.PI) / 180;
+    const x      = Math.round(90 + r * Math.cos(rad));
+    const y      = Math.round(90 + r * Math.sin(rad));
+    el.textContent = i % 2 === 0 ? '✨' : '⭐';
+    el.style.cssText = `
+      left: ${x}px; top: ${y}px;
+      animation-delay: ${i * 0.2}s;
+      font-size: ${12 + Math.random() * 8}px;
+    `;
+    ring.appendChild(el);
+  }
+}
+
+/* ── SECTION BUTTERFLIES (connection section) ── */
+function createSectionButterflies() {
+  const container = document.getElementById('sectionButterflies');
+  if (!container) return;
+  for (let i = 0; i < 6; i++) {
+    const el = document.createElement('div');
+    el.className = 'fly-butterfly';
+    el.textContent = '🦋';
+    el.style.cssText = `
+      left:  ${5 + Math.random() * 90}%;
+      top:   ${5 + Math.random() * 90}%;
+      --fx:  ${Math.random() * 60 - 30}px;
+      --fy:  ${-(30 + Math.random() * 60)}px;
+      --fx2: ${Math.random() * 80 - 40}px;
+      --fy2: ${Math.random() * 40}px;
+      --fr:  ${Math.random() * 30 - 15}deg;
+      --fdur:  ${6 + Math.random() * 6}s;
+      --fdelay: ${Math.random() * 6}s;
+      font-size: ${16 + Math.random() * 14}px;
+    `;
+    container.appendChild(el);
+  }
+}
+
+/* ── FINAL SCREEN HEARTS & BUTTERFLIES ── */
+function createFinalElements() {
+  const heartsContainer     = document.getElementById('finalFloatHearts');
+  const butterfliesContainer= document.getElementById('finalButterflies');
+
+  // Hearts
+  const heartSymbols = ['💗','💕','❤️','💖','💝'];
+  for (let i = 0; i < 16; i++) {
+    const el = document.createElement('div');
+    el.className = 'float-heart';
+    el.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+    el.style.cssText = `
+      left: ${Math.random() * 100}%;
+      bottom: ${Math.random() * 30}%;
+      --dur:   ${4 + Math.random() * 6}s;
+      --delay: ${Math.random() * 6}s;
+      font-size: ${14 + Math.random() * 20}px;
+    `;
+    heartsContainer.appendChild(el);
+  }
+
+  // Butterflies
+  for (let i = 0; i < 6; i++) {
+    const el = document.createElement('div');
+    el.className = 'fly-butterfly';
+    el.textContent = '🦋';
+    el.style.cssText = `
+      left:  ${10 + Math.random() * 80}%;
+      top:   ${10 + Math.random() * 80}%;
+      --fx:  ${Math.random() * 80 - 40}px;
+      --fy:  ${-(40 + Math.random() * 60)}px;
+      --fx2: ${Math.random() * 100 - 50}px;
+      --fy2: ${Math.random() * 50}px;
+      --fr:  ${Math.random() * 30 - 15}deg;
+      --fdur:  ${5 + Math.random() * 7}s;
+      --fdelay: ${Math.random() * 7}s;
+      font-size: ${20 + Math.random() * 18}px;
+    `;
+    butterfliesContainer.appendChild(el);
+  }
+}
+
+/* ── OPEN HEART (reveal main content) ── */
+function openHeart() {
+  const opening = document.getElementById('openingScreen');
+  const main    = document.getElementById('mainContent');
+
+  // Animate opening screen out
+  opening.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+  opening.style.opacity    = '0';
+  opening.style.transform  = 'scale(1.05)';
+
+  setTimeout(() => {
+    opening.style.display = 'none';
+    main.classList.remove('hidden');
+
+    // Start letter typing after a brief pause
+    setTimeout(() => startLetterTyping(), 600);
+
+    // Try to start music (may be blocked until user gesture — this is the gesture)
+    if (!musicPlaying && bgMusic && bgMusic.querySelectorAll('source').length > 0) {
+      bgMusic.play().then(() => {
+        musicIcon.textContent  = '⏸';
+        musicLabel.textContent = 'Pause Music';
+        musicPlaying = true;
+      }).catch(() => {});
+    }
+  }, 800);
+}
+
+/* ── INTERSECTION OBSERVER (fade in sections) ── */
+function initScrollObserver() {
+  const sections = document.querySelectorAll('.fade-in-section');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  sections.forEach(s => observer.observe(s));
+}
+
+/* ── LETTER TYPING ANIMATION ── */
+const LETTER_TEXT = `Di, I know this is hard. For both of us.
+
+When I think about losing you, it genuinely hurts in a way I didn't know I could feel. Not because I want to own you or control what you choose — but because what we have together is something I care about deeply.
+
+You make me feel like myself, di. Every conversation, every moment we've shared — they've all meant something real to me.
+
+Right now, I know there are things pulling at your heart from different directions. I'm not going to pretend I'm not scared. I am. But I also know that your peace of mind, your happiness, your sense of safety — those matter more to me than winning any argument or proving any point.
+
+I don't want to compete for your love, di. I want a relationship where we both choose each other — freely, honestly, willingly. Not out of obligation, not out of pressure, not out of guilt.
+
+If there are things about us that need to change, I want to hear them. If there are feelings you've been carrying that you haven't told me — I want to understand them. I want us to talk with honesty and open hearts.
+
+And if after all of that, you decide what's best for you — I'll respect that. Because your happiness matters to me, even if it's hard for me to accept.
+
+Un korangu is scared of losing his Kili Mooku. But more than anything, I want you to be genuinely okay. 🥺💗`;
+
+let typingTimeout = null;
+let letterTypingStarted = false;
+
+function startLetterTyping() {
+  if (letterTypingStarted) return;
+  const el     = document.getElementById('letterTyped');
+  const sigEl  = document.getElementById('letterSignature');
+  if (!el) return;
+
+  letterTypingStarted = true;
+
+  // Create cursor
+  const cursor  = document.createElement('span');
+  cursor.className = 'cursor-blink';
+  el.appendChild(cursor);
+
+  let idx       = 0;
+  const speed   = 18; // ms per character — feels natural, not too slow
+
+  function typeNext() {
+    if (idx < LETTER_TEXT.length) {
+      // Insert text node before cursor
+      const char = LETTER_TEXT[idx];
+      cursor.insertAdjacentText('beforebegin', char);
+      idx++;
+
+      // Vary speed slightly for natural feel
+      const delay = char === '\n' ? speed * 4 :
+                    char === '.' || char === ',' ? speed * 6 : speed;
+      typingTimeout = setTimeout(typeNext, delay);
+    } else {
+      // Done typing — remove cursor, show signature
+      cursor.remove();
+      sigEl.classList.remove('hidden');
+      sigEl.style.animation = 'fadeInMain 1s ease forwards';
+    }
+  }
+
+  typeNext();
+}
+
+/* Restart typing when letter section comes into view */
+function initLetterObserver() {
+  const letterSection = document.getElementById('openLetter');
+  if (!letterSection) return;
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && letterTypingStarted === false) {
+        startLetterTyping();
+      }
+    });
+  }, { threshold: 0.3 });
+  obs.observe(letterSection);
+}
+
+/* ── INTERACTIVE BUTTONS ── */
+const RESPONSES = {
+  talk: `Thank you, di. Let's talk with open hearts — listen to each other, understand what we both truly feel, and say the things we've been keeping inside. I'm here, whenever you're ready. ❤️`,
+  time: `Take your time, di. I don't want you to feel pressured. When you're ready — whether that's today, tomorrow, or whenever — I'm willing to listen. Your peace comes first. 💗`,
+};
+
+function handleChoice(type) {
+  const btns      = document.getElementById('interactiveBtns');
+  const area      = document.getElementById('responseArea');
+  const msgEl     = document.getElementById('responseMsg');
+  const taArea    = document.getElementById('textareaArea');
+  const resetWrap = document.getElementById('resetWrap');
+
+  // Hide buttons
+  btns.style.transition = 'opacity 0.4s ease';
+  btns.style.opacity    = '0';
+  setTimeout(() => { btns.classList.add('hidden'); }, 400);
+
+  area.classList.remove('hidden');
+
+  if (type === 'tell') {
+    msgEl.innerHTML = `Di, this space is just for you. Say whatever is in your heart. 💗<br><em style="font-size:0.9rem;color:var(--text-soft);">(Nothing here is sent anywhere — it's just for you to express yourself.)</em>`;
+    setTimeout(() => {
+      taArea.classList.remove('hidden');
+      resetWrap.classList.add('hidden');
+    }, 200);
+  } else {
+    msgEl.textContent = RESPONSES[type];
+    resetWrap.classList.remove('hidden');
+    taArea.classList.add('hidden');
+  }
+
+  area.style.opacity   = '0';
+  area.style.transform = 'translateY(20px)';
+  area.style.transition= 'opacity 0.6s ease, transform 0.6s ease';
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    area.style.opacity   = '1';
+    area.style.transform = 'translateY(0)';
+  }));
+}
+
+function resetChoices() {
+  const btns      = document.getElementById('interactiveBtns');
+  const area      = document.getElementById('responseArea');
+  const taArea    = document.getElementById('textareaArea');
+  const textarea  = document.getElementById('feelingsTextarea');
+
+  area.classList.add('hidden');
+  taArea.classList.add('hidden');
+  if (textarea) textarea.value = '';
+
+  btns.classList.remove('hidden');
+  btns.style.opacity = '0';
+  setTimeout(() => { btns.style.opacity = '1'; }, 50);
+}
+
+/* ── INIT ── */
+document.addEventListener('DOMContentLoaded', () => {
+  createParticles();
+  createPetals();
+  createOpeningButterflies();
+  createSparklesRing();
+  createSectionButterflies();
+  createFinalElements();
+  initScrollObserver();
+  initLetterObserver();
+});
+  </script>
+</body>
+</html>
